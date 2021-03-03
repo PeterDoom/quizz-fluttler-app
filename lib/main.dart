@@ -33,6 +33,12 @@ class _QuizPageState extends State<QuizPage> {
   ];
   int questionNumber = 0;
 
+  void incrementIndex() {
+    setState(() {
+      questionNumber += 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -69,6 +75,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                incrementIndex();
                 //The user picked true.
               },
             ),
@@ -87,7 +94,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                //The user picked false.
+                incrementIndex();
               },
             ),
           ),
