@@ -31,9 +31,20 @@ class _QuizPageState extends State<QuizPage> {
     'Approximately one quarter of human bones are in the feet.',
     'A slug\'s blood is green.'
   ];
+
+  List<bool> answers = [false, true, true];
+
   int questionNumber = 0;
 
-  void incrementIndex() {
+  void checkAnswer(buttonType) {
+    bool correctAnswer = answers[questionNumber];
+
+    if (correctAnswer == buttonType) {
+      print("right");
+    } else {
+      print("wrong");
+    }
+
     setState(() {
       questionNumber += 1;
     });
@@ -75,7 +86,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                incrementIndex();
+                checkAnswer(true);
                 //The user picked true.
               },
             ),
@@ -94,7 +105,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                incrementIndex();
+                checkAnswer(false);
               },
             ),
           ),
@@ -106,4 +117,3 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 }
-
