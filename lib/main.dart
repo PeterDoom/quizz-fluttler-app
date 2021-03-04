@@ -37,7 +37,7 @@ class _QuizPageState extends State<QuizPage> {
   int questionNumber = 0;
 
   void checkAnswer(buttonType) {
-    bool correctAnswer = answers[questionNumber];
+    bool correctAnswer = questionBank[questionNumber].questionAnswer;
 
     if (correctAnswer == buttonType) {
       print("right");
@@ -62,7 +62,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber],
+                questionBank[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
