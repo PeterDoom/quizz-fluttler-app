@@ -38,7 +38,6 @@ class _QuizPageState extends State<QuizPage> {
     } else {
       scoreKeeper.add(Icon(Icons.close, color: Colors.red));
     }
-
     setState(() {
       questionController.nextQuestion();
     });
