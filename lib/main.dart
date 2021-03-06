@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'QuestionController.dart';
 
 QuestionController questionController = new QuestionController();
@@ -38,6 +39,12 @@ class _QuizPageState extends State<QuizPage> {
     } else {
       scoreKeeper.add(Icon(Icons.close, color: Colors.red));
     }
+
+    if (questionController.isFinished()) {
+      Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.")
+          .show();
+    }
+
     setState(() {
       questionController.nextQuestion();
     });
