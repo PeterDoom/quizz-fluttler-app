@@ -34,9 +34,9 @@ class _QuizPageState extends State<QuizPage> {
     bool correctAnswer = questionController.getQuestionAnswer();
 
     if (correctAnswer == buttonType) {
-      print("right");
+      scoreKeeper.add(Icon(Icons.check, color: Colors.green));
     } else {
-      print("wrong");
+      scoreKeeper.add(Icon(Icons.close, color: Colors.red));
     }
 
     setState(() {
