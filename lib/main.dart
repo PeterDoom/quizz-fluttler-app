@@ -30,11 +30,8 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
 
-  int questionNumber = 0;
-
   void checkAnswer(buttonType) {
-    bool correctAnswer =
-        questionController.getQuestionAnswer(questionNumber);
+    bool correctAnswer = questionController.getQuestionAnswer();
 
     if (correctAnswer == buttonType) {
       print("right");
@@ -43,7 +40,7 @@ class _QuizPageState extends State<QuizPage> {
     }
 
     setState(() {
-      questionNumber += 1;
+      questionController.nextQuestion();
     });
   }
 
@@ -59,7 +56,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questionController.getQuestionText(questionNumber),
+                questionController.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
