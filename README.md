@@ -1,4 +1,4 @@
-# Quizzler ❓
+# Quizzler
 
 ## The Goal
 
