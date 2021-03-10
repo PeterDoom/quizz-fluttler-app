@@ -34,19 +34,22 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(buttonType) {
     bool correctAnswer = questionController.getQuestionAnswer();
 
-    if (correctAnswer == buttonType) {
-      scoreKeeper.add(Icon(Icons.check, color: Colors.green));
-    } else {
-      scoreKeeper.add(Icon(Icons.close, color: Colors.red));
-    }
-
-    if (questionController.isFinished()) {
-      Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.")
-          .show();
-    }
-
     setState(() {
-      questionController.nextQuestion();
+      if (questionController.isFinished()) {
+        Alert(context: context,
+            title: "RFLUTTER",
+            desc: "Flutter is awesome."
+        ).show();
+        questionController.reset();
+        scoreKeeper = [];
+      } else {
+        if (correctAnswer == buttonType) {
+          scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+        } else {
+          scoreKeeper.add(Icon(Icons.close, color: Colors.red));
+        }
+        questionController.nextQuestion();
+      }
     });
   }
 
