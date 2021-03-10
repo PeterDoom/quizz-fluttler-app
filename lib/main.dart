@@ -39,7 +39,7 @@ class _QuizPageState extends State<QuizPage> {
       if (questionController.isFinished()) {
         Alert(
                 context: context,
-                title: "RFLUTTER",
+                title: "Quiz Finished",
                 desc: "Correct answers $correctAnswersCount")
             .show();
         questionController.reset();
