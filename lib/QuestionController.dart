@@ -54,4 +54,8 @@ class QuestionController {
       return false;
     }
   }
+
+  void reset() {
+    _questionNumber = 0;
+  }
 }
