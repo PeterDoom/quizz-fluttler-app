@@ -30,21 +30,25 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
+  int correctAnswersCount = 0;
 
   void checkAnswer(buttonType) {
     bool correctAnswer = questionController.getQuestionAnswer();
 
     setState(() {
       if (questionController.isFinished()) {
-        Alert(context: context,
-            title: "RFLUTTER",
-            desc: "Flutter is awesome."
-        ).show();
+        Alert(
+                context: context,
+                title: "RFLUTTER",
+                desc: "Correct answers $correctAnswersCount")
+            .show();
         questionController.reset();
         scoreKeeper = [];
+        correctAnswersCount = 0;
       } else {
         if (correctAnswer == buttonType) {
           scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+          correctAnswersCount++;
         } else {
           scoreKeeper.add(Icon(Icons.close, color: Colors.red));
         }
